@@ -1,25 +1,28 @@
 package com.manoj.movieapi.service;
 
 import com.manoj.movieapi.model.Movie;
+import com.manoj.movieapi.repository.MovieRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class MovieService {
 
-    private final List<Movie> movies = new ArrayList<>();
+    private final MovieRepository movieRepository;
+
+    public MovieService(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
 
     public Movie addMovie(Movie movie) {
-        movies.add(movie);
-        return movie;
+        return movieRepository.save(movie);
     }
 
     public Movie getMovieById(Long id) {
-        return movies.stream()
-                .filter(movie -> movie.getId().equals(id))
-                .findFirst()
-                .orElse(null);
+        return movieRepository.findById(id).orElse(null);
+    }
+
+    public List<Movie> getAllMovies() {
+        return movieRepository.findAll();
     }
 }

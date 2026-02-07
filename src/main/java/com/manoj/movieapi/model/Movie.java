@@ -1,49 +1,39 @@
 package com.manoj.movieapi.model;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 public class Movie {
 
-    @NotNull
     private Long id;
 
-    @NotBlank
-    private String name;
+    @NotBlank(message = "Title is required")
+    private String title;
 
-    @NotBlank
-    private String description;
+    @NotBlank(message = "Genre is required")
+    private String genre;
 
-    public Movie() {
-    }
+    private int releaseYear;
 
-    public Movie(Long id, String name, String description) {
+    // Default constructor for JSON parsing
+    public Movie() {}
+
+    public Movie(Long id, String title, String genre, int releaseYear) {
         this.id = id;
-        this.name = name;
-        this.description = description;
+        this.title = title;
+        this.genre = genre;
+        this.releaseYear = releaseYear;
     }
 
-    public Long getId() {
-        return id;
-    }
+    // Getters & Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
 
-    public String getName() {
-        return name;
-    }
+    public String getGenre() { return genre; }
+    public void setGenre(String genre) { this.genre = genre; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public int getReleaseYear() { return releaseYear; }
+    public void setReleaseYear(int releaseYear) { this.releaseYear = releaseYear; }
 }
