@@ -1,68 +1,71 @@
-Movie Management API
-A lightweight, RESTful Java backend application built with Spring Boot to manage a collection of movies. This project demonstrates clean code practices, input validation, and in-memory data management as per the technical assessment requirements.
+# 🎬 Movie Management REST API
 
-🚀 Live Demo
-The application is hosted on Render and can be accessed here: https://movieapi-ar5j.onrender.com/api/movies
+A simple and professional **Java Spring Boot RESTful backend application** for managing a collection of movies.  
+This project is developed **strictly according to the given sample task**, using **in-memory data storage** and clean REST API design.
 
-Note: Since this is hosted on a free tier, the service may take 30–60 seconds to "wake up" during the first request if it has been inactive.
+---
 
-🛠️ Tech Stack
-Language: Java 17
+## 📌 Problem Statement (Task Summary)
 
-Framework: Spring Boot 3.x
+Create a Java backend application that:
+- Manages a collection of items (Movies)
+- Uses **in-memory storage (ArrayList)**
+- Provides REST APIs to:
+  - Add an item
+  - Get an item by ID
+- Validates input data
+- Includes proper documentation
+- Is hosted online for demo purposes
 
-Build Tool: Maven
+---
 
-Data Storage: In-Memory (ArrayList)
+## 🌐 Live Demo
 
-Deployment: Docker & Render
+🔗 **Deployed Application URL:**  
+https://movieapi-ar5j.onrender.com/movies
 
-📌 API Endpoints
-1. Add a New Movie
-Method: POST
+> ⚠️ **Important Note:**  
+> This application is hosted on **Render (Free Tier)**.  
+> The first request may take **30–50 seconds** due to server cold start.
 
-Path: /api/movies
+---
 
-Sample Request Body:
+## 🚀 Features
 
-JSON
+- **RESTful API Design**
+- **In-Memory Data Storage** using `ArrayList`
+- **Input Validation** using `jakarta.validation`
+- **Clean Layered Architecture**
+- **No Database Used** (as required)
+- **Production-ready structure for demo**
+
+---
+
+## 🛠 Tech Stack
+
+- Java 17
+- Spring Boot
+- Spring Web
+- Jakarta Validation
+- Maven
+- Docker
+- Render (Hosting)
+
+---
+
+## 📑 API Endpoints
+
+### 1️⃣ Add a Movie
+**Method:** `POST`  
+**Endpoint:** `/movies`
+
+**Description:**  
+Adds a new movie to the in-memory collection.
+
+**Sample Request Body:**
+```json
 {
-  "title": "Interstellar",
-  "genre": "Sci-Fi",
-  "releaseYear": 2014
+  "title": "The Dark Knight",
+  "genre": "Action",
+  "year": 2008
 }
-Validation: The title and genre fields are required. If missing, the API returns a 400 Bad Request.
-
-2. Get a Single Movie by ID
-Method: GET
-
-Path: /api/movies/{id}
-
-Response: Returns the movie details or a 404 Not Found if the ID does not exist.
-
-3. Get All Movies
-Method: GET
-
-Path: /api/movies
-
-⚙️ Implementation Details
-In-Memory Store: As requested, an ArrayList is utilized within a dedicated Repository layer to manage the data lifecycle.
-
-Input Validation: Implemented using jakarta.validation constraints to ensure only valid data is stored.
-
-Architecture: The project follows a clean Controller-Service-Repository pattern to ensure separation of concerns.
-
-🏃 How to Run Locally
-Clone the repository:
-
-Bash
-git clone https://github.com/manojkushwah91/movieapi
-Navigate to the project directory:
-
-Bash
-cd movieapi
-Run the application:
-
-Bash
-./mvnw spring-boot:run
-Access the API: The server will start at http://localhost:10000/api/movies
