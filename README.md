@@ -22,7 +22,7 @@ Create a Java backend application that:
 ## 🌐 Live Demo
 
 🔗 **Deployed Application URL:**  
-https://movieapi-ar5j.onrender.com/movies
+https://movieapi-ar5j.onrender.com/api/movies
 
 > ⚠️ **Important Note:**  
 > This application is hosted on **Render (Free Tier)**.  
